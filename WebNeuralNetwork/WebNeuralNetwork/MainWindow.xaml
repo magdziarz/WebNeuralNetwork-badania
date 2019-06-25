@@ -1,0 +1,46 @@
+﻿<Window x:Class="WebNeuralNetwork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebNeuralNetwork"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+             <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="1" Grid.Column="1" Width="100" Height="23" Content="Wczytaj dane" Click="Button_Click" Margin="50,0" VerticalAlignment="Top"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Name="LerningStartStopButton" Margin="5,5,5,0" Click="StartstopLerning" >Start</Button>
+        <TextBox Name="Probka" Grid.Row="3"/>
+        <Button Grid.Row="3" Grid.Column="1" Name="test" Margin="5" Click="testPrzycisk" >test</Button>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+             
+            </StackPanel>
+            <StackPanel>
+              
+            </StackPanel>
+
+        </StackPanel>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="3" x:Name="CalculationTextBlock" Margin="5" ><InlineUIContainer>
+            
+        		
+        	</InlineUIContainer></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="3" x:Name="PoprawneTextBox" Margin="5" ><InlineUIContainer>
+            
+        		
+        	</InlineUIContainer></TextBlock>
+        <Button x:Name="button1" Content="Start" HorizontalAlignment="Left" Margin="44,0,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" RenderTransformOrigin="0.44,-0.15" Height="23" Click="button1_Click"/>
+    </Grid>
+</Window>

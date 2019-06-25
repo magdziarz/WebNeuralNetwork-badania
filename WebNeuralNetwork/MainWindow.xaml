@@ -1,0 +1,102 @@
+﻿<Window x:Class="WebNeuralNetwork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebNeuralNetwork"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="650">
+    <Grid Background="#FF242F76">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="225" />
+            <ColumnDefinition Width="200"/>
+
+            <ColumnDefinition Width="225"/>
+            
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="2" Grid.RowSpan="10" Grid.Column="0" Margin="25,5,15,5">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+            </Border.Background>
+            
+        </Border>
+        <Border Grid.Row="2" Grid.RowSpan="10" Grid.Column="1" Margin="15,5,15,5">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+            </Border.Background>
+
+        </Border>
+        <Border Grid.Row="2" Grid.RowSpan="10" Grid.Column="2" Margin="15,5,35,5">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientActiveCaptionColorKey}}"/>
+            </Border.Background>
+
+        </Border>
+
+        <Border Grid.Row="0"  Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="45,25,45,25">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4E76FF" Offset="0"/>
+                    <GradientStop Color="#FFF9FBFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Label x:Name="label" Content="wybierz zestaw parametrów sieci" Margin="25,5,25,5" HorizontalAlignment="Center" FontSize="21.333" FontFamily="Book Antiqua"/>
+
+        </Border>
+        <Border Grid.Row="12"  Grid.RowSpan="6" Grid.Column="0" Grid.ColumnSpan="3" Margin="85,25,85,25">
+            <Border.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}"/>
+            </Border.Background>
+
+        </Border>
+
+        <Button x:Name="ButtonWczytaj" Grid.Row="5" Grid.Column="2" Content="Wczytaj dane"              Visibility="Visible" Margin="25,5,45,0" Click="Button_Click" />
+        <Button Grid.Row="6" Grid.Column="2" x:Name="LerningStartStopButton"       Visibility="Visible" Margin="25,5,45,0" Click="StartstopLerning" Content="Ucz" />
+        <Button Grid.Row="7" Grid.Column="2" x:Name="test"                         Visibility="Visible" Margin="25,5,45,0" Click="testPrzycisk" Content="Test" />
+        <Button Grid.Row="8" Grid.Column="2" x:Name="BPortfel" Content="Portfel"  Visibility="Visible" Margin="25,5,45,0" Click="button1_Click"/>
+
+        <RadioButton x:Name="radioButton1"       Content="Parametry I Zestawu "  GroupName="parametry" HorizontalAlignment="Left" Margin="30,10,0,5" Grid.Row="3" Grid.Column="0"  Checked="radioButton1_Checked"/>
+        <RadioButton x:Name="radioButton4"       Content="Parametry IV Zestawu"  GroupName="parametry" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="4"  Grid.Column="0" VerticalAlignment="Top" Checked="radioButton4_Checked" />
+        <RadioButton x:Name="radioButton10"      Content="Parametry X Zestawu"   GroupName="parametry" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" Checked="radioButton10_Checked" />
+        <RadioButton x:Name="radioButtonSam"     Content="wprowadź sam parametry" GroupName="parametry" HorizontalAlignment="Left" Margin="30,10,0,0" Grid.Row="6" Grid.Column="0" Height="15" VerticalAlignment="Top" Click="aktywny" />
+
+        <TextBox x:Name="TXBwarstwa" Grid.Row="7" Grid.Column="0"  HorizontalAlignment="Right" Text="ilość warstw"           Width="110" Margin= "5,5,25,5" IsEnabled="False" GotFocus="aktywnewarstwy" LostFocus="nieaktywnewarswty" ToolTip="liczba całkowita (1-5)"/>
+        <TextBox x:Name="TXBneuron"  Grid.Row="8" Grid.Column="0"  HorizontalAlignment="Right" Text="ilość neuronów"         Width="110" Margin= "5,5,25,5" IsEnabled="False" GotFocus="aktywneneuron" LostFocus="nieaktywneneuron" ToolTip="liczba całkowita"/>
+        <TextBox x:Name="TXBwspucz"  Grid.Row="9" Grid.Column="0"  HorizontalAlignment="Right" Text="wsp. uczenia"           Width="110" Margin= "5,5,25,5" GotFocus="aktywnelearning" LostFocus="nieaktywnelearning" ToolTip="liczba dodatnia mniejsza od 1" IsEnabled="False" />
+        <TextBox x:Name="TXBwaga"    Grid.Row="10" Grid.Column="0"  HorizontalAlignment="Right" Text="min waga wyjść"         Width="110" Margin= "5,5,25,5" IsEnabled="False" Height="20" VerticalAlignment="Top" GotFocus="aktywnewyjscie" ToolTip="liczba w zakresie (-1;1)" LostFocus="nieaktywnawaga"/>
+
+
+        <RadioButton x:Name="radioButtonselekcja"      Content="wybrane dane"   GroupName="daneuczace" HorizontalAlignment="Left" Margin="35,10,0,0" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top"  Checked="radioButtonselekcja_Checked" />
+        <RadioButton x:Name="radioButtonlosowe"     Content="losowe dane" GroupName="daneuczace" HorizontalAlignment="Left" Margin="35,10,0,0" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top"  Checked="radioButtonlosoweChecked" />
+
+        <TextBox x:Name="koniec" Grid.Column="1"  Grid.Row="9" HorizontalAlignment="Left" Height="23" Margin="35,5,15,5"   TextWrapping="Wrap" Text="500" VerticalAlignment="Bottom" Width="120" SpellCheck.IsEnabled="True" GotFocus="aktywujbuttony"/>
+        <TextBox x:Name="poczatek" Grid.Column="1"  Grid.Row="8" HorizontalAlignment="Left" Margin="35,5,15,5"   TextWrapping="Wrap" Text="100" Width="120" SpellCheck.IsEnabled="True" />
+
+        <Label Grid.Column="1" Grid.Row="3" Margin="35,1" Content="Dane uczące:"/>
+        <Label Grid.Column="1" Grid.Row="7" Margin="35,1" Content="Sprawdzany okres ():"/>
+            <TextBlock Grid.Row="13" Grid.ColumnSpan="4" x:Name="CalculationTextBlock" Margin="85,5,85,5" ><InlineUIContainer/></TextBlock>
+        <TextBlock  Grid.Row ="14" Grid.RowSpan="3" Grid.ColumnSpan="4" x:Name="PoprawneTextBox" Margin="105,5,105,35" ><InlineUIContainer/></TextBlock>
+
+
+    </Grid>
+</Window>
